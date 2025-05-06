@@ -111,7 +111,7 @@
   <div class="main-content">
     <div class="signup-container">
         <h2>Create Account</h2>
-        <form action="process_signup.php" method="POST">
+        <form action="partials/_dbconnect.php" method="POST">
         <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required />
