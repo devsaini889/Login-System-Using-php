@@ -109,7 +109,7 @@
         <a href="welcome.php">Home</a>
         <a href="login.php">Login</a>
         <a href="signup.php">Sign Up</a>
-        <a href="signout.php">Sign Out</a>
+        <a href="logout.php">Log Out</a>
       </div>
     </div>
   </nav>

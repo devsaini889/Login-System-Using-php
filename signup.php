@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Signup Page</title>
   <style>
-     * {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -18,6 +18,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .main-content {
       flex: 1;
       display: flex;
@@ -25,11 +26,10 @@
       justify-content: center;
       padding: 2rem;
     }
+
     nav {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-     
-     
     }
 
     .signup-container {
@@ -101,39 +101,60 @@
     .extra-options a:hover {
       text-decoration: underline;
     }
+
+    .alert {
+      background-color: #ffe6e6;
+      color: #d8000c;
+      padding: 12px;
+      border: 1px solid #d8000c;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
   </style>
 </head>
 <body>
 
-    <nav>
+  <nav>
     <?php require 'partials/_navbar.php'; ?>
   </nav>
+
   <div class="main-content">
     <div class="signup-container">
         <h2>Create Account</h2>
+
+        <!-- Alert message -->
+        <?php if (isset($_GET['error']) && $_GET['error'] === 'exists'): ?>
+          <div class="alert">
+            🚫 A user with this email already exists. Please try logging in or use another email.
+          </div>
+        <?php endif; ?>
+
         <form action="partials/_dbconnect.php" method="POST">
-        <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required />
-        </div>
+          <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+          </div>
 
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required />
-        </div>
+          <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+          </div>
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
-        </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+          </div>
 
-        <button type="submit" class="signup-btn">Sign Up</button>
+          <button type="submit" class="signup-btn">Sign Up</button>
         </form>
 
         <div class="extra-options">
-        <p>Already have an account? <a href="login.php">Login</a></p>
+          <p>Already have an account? <a href="login.php">Login</a></p>
         </div>
     </div>
-   </div>
+  </div>
 </body>
 </html>

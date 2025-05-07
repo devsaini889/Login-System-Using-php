@@ -1,5 +1,4 @@
 <?php
-
 $nm = $_POST["name"];
 $mail = $_POST["email"];
 $pass = $_POST["password"];
@@ -77,7 +76,13 @@ if (mysqli_query($conn, $sql)) {
     }
 
 } else {
-    echo "Error: " . mysqli_error($conn);
+    if (mysqli_errno($conn) == 1062) {
+        // Duplicate entry error
+        header("Location: /loginsystem/signup.php?error=exists");
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
 }
 
 mysqli_close($conn);
