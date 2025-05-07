@@ -3,6 +3,9 @@ $nm = $_POST["name"];
 $mail = $_POST["email"];
 $pass = $_POST["password"];
 
+
+$hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +14,7 @@ $database = "users";
 $conn = mysqli_connect($servername, $username, $password, $database);
 
 $sql = "INSERT INTO `users` (`sno`, `Name`, `email`, `password`) 
-        VALUES (NULL, '$nm', '$mail', '$pass')";
+        VALUES (NULL, '$nm', '$mail', '$hashed_pass')";
 
 if (mysqli_query($conn, $sql)) {
     $last_id = mysqli_insert_id($conn);
