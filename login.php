@@ -126,7 +126,7 @@
         <button type="submit" class="login-btn">Sign In</button>
       </form>
       <div class="extra-options">
-        <p><a href="#">Forgot Password?</a></p>
+        <p><a href="partials/_forgetpass.php">Forgot Password?</a></p>
         <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
       </div>
     </div>
